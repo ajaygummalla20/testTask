@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 117px;
+    margin-left: 62px;
+    width: 96%;
+  }
+  
+  .mat-tab-header.mat-mdc-tab-header{
+    max-width: 50% !important;
+    height: 33px !important;
+  }
+  .mat-mdc-tab-label-container{
+    align-items: center !important;
+  }
+  span.mdc-tab-indicator{
+    top:10px !important
+  }
+  .tabs-col {
+    position: relative;
+  }
+  
+  .tabs-col::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    border-bottom: 2px solid #c8e4e4;
+  }

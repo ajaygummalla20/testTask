@@ -1,0 +1,146 @@
+<div class="flex flex-row">
+  <div class="search-container">
+    <div class="search-view">
+      <div class="search-button">
+        <span class="material-icons" style="font-size: 20px;color: #757575;"> search </span>
+      </div>
+      <input type="text" placeholder="search" class="inputSearch" (keydown)="filterData($event)"/>
+      <div class="add-button">
+        <span><i class="fa-regular fa-plus" style="color: #d7dae0"></i></span>
+      </div>
+    </div>
+    <div class="list-view overflow-auto">
+      <div class="sticky-item text-[#4cb2b2] font-extrabold bg-[#f6f8f8]">
+        Default
+        <!-- <span class="ml-2"><i class="fa-solid fa-info" class="info-icon"></i></span> -->
+      </div>
+      <div
+        class="item-text item flex justify-between"
+        *ngFor="let item of items"
+      >
+        <span>{{ item.name }}</span>
+        <span class="flex flex-row gap-1"
+          ><i class="fa-solid fa-pen-to-square" style="color: #757575" [matTooltip]="'Edit Productivity Profile'" matTooltipPosition="below" (click)="editProdctivity(item)"></i
+          ><i class="fa-solid fa-trash" style="color: #757575;" [matTooltip]="'Delete Productivity Profile'" matTooltipPosition="below" (click)="deleteActivity(item)"></i
+        ></span>
+      </div>
+    </div>
+  </div>
+  <div class="catogories-container">
+    <div class="tab gap-3 bg-[#FBFBFB]">
+      <button
+        class="tablinks font-poppins font-normal w-[165px] h-[35px] text-[#707070]"
+        *ngFor="let each of tabs"
+        [ngClass]="{
+          'text-[#c8e4e4] border-[#4CB2B2] border-b-2': each.selected === true
+        }"
+        (click)="changeConfigureTabs(each.name)"
+      >
+        {{ each.name }}
+      </button>
+      <div class="bg-[#c8e4e4] h-[2px]"></div>
+    </div>
+    <div class="flex flex-col" *ngIf="tabs[0].selected">
+      <div class="card w-[100%] catogori-header">
+        <h2>Application Group</h2>
+        <h2>Idle Time Configuration</h2>
+        <div>
+          <smart-search
+            (onValueChange)="handleValueChange($event)"
+          ></smart-search>
+        </div>
+      </div>
+      <div
+        *ngFor="let item of dataSource.data"
+        class="card w-[100%] catogories-data"
+      >
+        <div class="flex justify-start w-28">
+          <h2>{{ item.name }}</h2>
+        </div>
+        <div class="flex justify-center cursor-pointer">
+          <h2>{{ item.type }}</h2>
+          <div class="hidden hover:block">
+            <span
+              ><i class="fa-solid fa-pen-to-square" style="color: #63e6be"></i
+            ></span>
+          </div>
+        </div>
+        <div class="flex gap-1">
+          <button
+            class="cat-button"
+            [ngClass]="{ active: item.productive }"
+            (click)="changeActive('active', item)"
+          >
+            PRODUCTIVE
+          </button>
+          <button
+            class="cat-button"
+            [ngClass]="{ unactive: item.productive === false }"
+            (click)="changeActive('unactive', item)"
+          >
+            NON PRODUCTIVE
+          </button>
+        </div>
+      </div>
+      <mat-paginator
+        [length]="data.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [showFirstLastButtons]="showFirstLastButtons"
+        (page)="paginate($event, 'tab1')"
+        class="mr-[33%]"
+      ></mat-paginator>
+    </div>
+    <div class="flex flex-col" *ngIf="tabs[1].selected">
+      <div
+        class="card flex w-[100%] bg-[#e9f6f6] h-[40px] teamHeader font-semibold"
+      >
+        <div class="w-[54%]">
+          <h2>Team Name</h2>
+        </div>
+        <div>
+          <h2>Action</h2>
+        </div>
+      </div>
+      <div *ngFor="let item of teamData" class="card w-[100%] catogories-data">
+        <div class="flex justify-start w-28">
+          <h2>{{ item.name }}</h2>
+        </div>
+        <div class="flex justify-start mr-[42%]">
+          <i class="fa-solid fa-pen-to-square" style="color: #63e6be"></i>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col" *ngIf="tabs[2].selected">
+      <div
+        class="card flex w-[100%] bg-[#e9f6f6] h-[40px] teamHeader font-semibold"
+      >
+        <div class="w-[54%]">
+          <h2>User Name</h2>
+        </div>
+        <div>
+          <h2>Action</h2>
+        </div>
+      </div>
+      <div
+        *ngFor="let item of dataSource.data"
+        class="card w-[100%] catogories-data"
+      >
+        <div class="flex justify-start w-28">
+          <h2>{{ item.name }}</h2>
+        </div>
+        <div class="flex justify-start mr-[42%]">
+          <i class="fa-solid fa-pen-to-square" style="color: #63e6be"></i>
+        </div>
+      </div>
+      <mat-paginator
+        [length]="items.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [showFirstLastButtons]="showFirstLastButtons"
+        (page)="paginate($event, 'tab2')"
+        class="mr-[33%]"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="flex flex-row bg-[#f4f8f9] gap-3 tabs-col">
+    <div
+      class="text-[#4CB2B2] rounded-tl-lg rounded-tr-lg rounded-bl-none rounded-br-none bg-white w-48 h-10 flex justify-center items-center align-baseline text-[15px] cursor-pointer"
+      *ngFor="let each of tabs"
+      [ngClass]="{
+        'text-white border-[#4CB2B2] border-b-2': each.selected === true
+      }"
+      [style]="{
+        'background-color': each.selected === true ? '#4CB2B2B3' : ''
+      }"
+      (click)="changeTab(each.name)"
+    >
+      {{ each.name }}
+    </div>
+  </div>
+  <div class="tab gap-3 bg-[#FBFBFB]">
+    <button
+      class="tablinks font-poppins font-normal w-[165px] h-[35px] text-[#707070]"
+      *ngFor="let each of tabs2"
+      [ngClass]="{
+        'text-[#c8e4e4] border-[#4CB2B2] border-b-2': each.selected === true
+      }"
+      (click)="changeConfigureTabs(each.name)"
+    >
+      {{ each.name }}
+    </button>
+    <div class="bg-[#c8e4e4] h-[2px]"></div>
+  </div>
+</div>
+
+<div class="w-[1176px] ml-[82px]">
+  <app-productivity-profile
+    *ngIf="tabs2[0].selected === true"
+  ></app-productivity-profile>
+  <app-mapping *ngIf="tabs2[1].selected === true"></app-mapping>
+  <app-application-groups
+    *ngIf="tabs2[2].selected === true"
+  ></app-application-groups>
+</div>
+
+<router-outlet />

@@ -1,0 +1,24 @@
+<div class="flex flex-col items-center overflow-hidden">
+  <div class="bg-[#4cb2b2] text-[#ffffff] w-[100%]">
+    <h2 mat-dialog-title>Manage Productivity Profile</h2>
+  </div>
+  <div class="flex flex-col p-2 w-[351px]">
+    <label>Productivity Profile Name</label>
+    <input type="text" [(ngModel)]="profileName" class="input" />
+  </div>
+  <div class="flex flex-row gap-2">
+    <button class="edit" *ngIf="type === 'edit'">
+      <span
+        ><i class="fa-solid fa-pen-to-square" style="color: white" (click)="closePopup()"></i
+      ></span>
+      Edit
+    </button>
+    <button class="edit" *ngIf="type === 'delete'">
+        <span
+          ><i class="fa-solid fa-trash" style="color: white" (click)="closePopup()"></i
+        ></span>
+        Delete
+      </button>
+    <button class="cancle">Cancel</button>
+  </div>
+</div>

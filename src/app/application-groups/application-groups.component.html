@@ -1,0 +1,41 @@
+<div class="flex flex-col">
+  <div
+    class="card flex w-[100%] bg-[#e9f6f6] h-[40px] teamHeader font-semibold"
+  >
+    <div class="w-[35%]">
+      <h2>Application Group</h2>
+    </div>
+    <div class="w-[35%]">
+      <h2>Category Name</h2>
+    </div>
+    <div class="w-[32%]">
+      <h2>priority</h2>
+    </div>
+    <div>
+      <h2>Actions</h2>
+    </div>
+  </div>
+  <div *ngFor="let item of items" class="card w-[100%] catogories-data">
+    <div class="flex justify-start w-28">
+      <h2>{{ item.name }}</h2>
+    </div>
+    <div class="flex justify-start w-28">
+      <h2>{{ item.name }}</h2>
+    </div>
+    <div class="flex justify-start w-28">
+      <h2>{{ item.name }}</h2>
+    </div>
+    <div class="flex justify-start gap-2">
+      <i class="fa-solid fa-pen-to-square" style="color: #4cb2b2;margin-top: 4px;"></i>
+      <span class="material-icons" style="color: #4cb2b2;"> archive </span>
+    </div>
+  </div>
+  <!-- <mat-paginator
+    [length]="items.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [showFirstLastButtons]="showFirstLastButtons"
+    (page)="paginate($event,'tab2')"
+    class="mr-[33%]"
+  ></mat-paginator> -->
+</div>

@@ -1,0 +1,66 @@
+.iconBox{
+    align-items: center;
+    background-color: #f9fafc;
+    border: 0.0625rem solid #00000026;
+    display: flex;
+    padding: 0.5625rem 0.625rem;
+    font-family: "Poppins";
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.87);
+    gap: 0.2rem;
+    width: 4.375rem;
+}
+.text-box{
+    border: 0.0625rem solid #00000026;
+    align-items: center;
+    padding: 0.5625rem 0.625rem;
+}
+.mat-stroked-button{
+    border-color: rgba(0, 0, 0, 0.12);
+}
+.action-button{
+    border: 0.0625rem solid rgba(0, 0, 0, 0.1490196078);
+    width: 77px;
+    border-radius: 4px;
+}
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 11px;
+    font-size: 12px;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type="text"], select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 34px !important;
+    padding: 0 26px 4px 10px !important;
+  }
+  .map-butt{
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    max-width: 145px;
+    min-width: 145px;
+    background-color: #4cb2b2;
+    color: white;
+    justify-content: center;
+    gap: 6px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .filter-group label {
+    margin-bottom: 5px;
+  }
+  .onLine{
+    margin-left: 6px;
+    margin-top: -9px;
+    background: white;
+  }
