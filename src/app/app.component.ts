@@ -8,9 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
-import { ProductivityProfileComponent } from './productivity-profile/productivity-profile.component';
-import { MappingComponent } from "./mapping/mapping.component";
+import { MatDialog } from '@angular/material/dialog';
 import { ApplicationGroupsComponent } from "./application-groups/application-groups.component";
+import { AddPopupComponent } from './add-popup/add-popup.component';
 
 
 @Component({
@@ -23,15 +23,14 @@ import { ApplicationGroupsComponent } from "./application-groups/application-gro
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    CommonModule, ProductivityProfileComponent, MappingComponent, ApplicationGroupsComponent],
+    CommonModule, ApplicationGroupsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'test-project';
   tabs = [{name:'Trends',selected:false},{name:'Time Line',selected:false},{name:'Configure Apps',selected:true}]
-  tabs2 = [{name:'Productivity Profile',selected:true},{name:'Mapping',selected:false},{name:'Application Groups',selected:false}]
-
+  constructor(private dailog:MatDialog){}
   changeTab(name:any){
     this.tabs.forEach(x => {
       if(x.name === name){
@@ -41,13 +40,12 @@ export class AppComponent {
       }
     })
   }
-  changeConfigureTabs(name:any){
-    this.tabs2.forEach(x =>{
-      if(name === x.name){
-        x.selected = true;
-      }else{
-        x.selected = false;
-      }
-    })
+  openDialog(){
+  let dailog = this.dailog.open(AddPopupComponent,{
+    width:'400px',
+    height:'213px',
+    panelClass: 'custom-dialog-container'
+  })
   }
+ 
 }

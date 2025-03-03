@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MappingComponent } from './mapping.component';
+import { ArchivePopupComponent } from './archive-popup.component';
 
-describe('MappingComponent', () => {
-  let component: MappingComponent;
-  let fixture: ComponentFixture<MappingComponent>;
+describe('ArchivePopupComponent', () => {
+  let component: ArchivePopupComponent;
+  let fixture: ComponentFixture<ArchivePopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MappingComponent]
+      imports: [ArchivePopupComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MappingComponent);
+    fixture = TestBed.createComponent(ArchivePopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

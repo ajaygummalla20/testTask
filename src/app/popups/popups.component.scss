@@ -1,14 +1,4 @@
-.input{
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    height: calc(1.5em + 0.75rem + 2px);
-}
+
 .cancle{
     background: white;
     border: 1px solid #ccc;
@@ -17,11 +7,23 @@
     margin-bottom: 8px;
     border-radius: 4px;
 }
-.edit{
-    background: #4cb2b2;
-    color: white;
-    width: 81px;
-    height: 31px;
-    margin-bottom: 8px;
-    border-radius: 4px;
-}
+.tablinks{
+    background-color: white;
+    height: 36px;
+    padding: 0px 10px;
+    border: none !important;
+  }
+  .team-text{
+    font-size: 16px !important;
+    color: #363636 !important;
+    font-weight: 501 !important;
+  }
+  .container{
+    padding-top: 10px;
+    padding-left: 13px;
+    padding-right: 15px;
+  }
+  .border_bottom{
+    border-bottom: 2px solid #4cb2b2 !important;
+    color: #4cb2b2 !important;
+  }

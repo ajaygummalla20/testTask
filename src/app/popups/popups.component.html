@@ -1,24 +1,53 @@
-<div class="flex flex-col items-center overflow-hidden">
-  <div class="bg-[#4cb2b2] text-[#ffffff] w-[100%]">
-    <h2 mat-dialog-title>Manage Productivity Profile</h2>
-  </div>
-  <div class="flex flex-col p-2 w-[351px]">
-    <label>Productivity Profile Name</label>
-    <input type="text" [(ngModel)]="profileName" class="input" />
-  </div>
-  <div class="flex flex-row gap-2">
-    <button class="edit" *ngIf="type === 'edit'">
-      <span
-        ><i class="fa-solid fa-pen-to-square" style="color: white" (click)="closePopup()"></i
-      ></span>
-      Edit
-    </button>
-    <button class="edit" *ngIf="type === 'delete'">
-        <span
-          ><i class="fa-solid fa-trash" style="color: white" (click)="closePopup()"></i
-        ></span>
-        Delete
+<div class="container overflow-hidden">
+  <div class="flex flex-row justify-between">
+    <div>
+      <button
+        class="tablinks font-poppins font-normal w-auto h-[35px] text-[#707070]"
+        *ngFor="let each of tabs2"
+        [ngClass]="{
+          'border_bottom': each.selected === true
+        }"
+      >
+        {{ each.name }}
       </button>
-    <button class="cancle">Cancel</button>
+    </div>
+    <div>
+      <span><i class="fa-solid fa-xmark text-xl cursor-pointer" (click)="dialogRef.close()"></i></span>
+    </div>
+  </div>
+  <div class="h-[1px] bg-[#707070]"></div>
+  <div class="flex flex-row justify-between mt-3">
+    <div class="ml-[10px]">
+      <span class="team-text"
+        >Team:<span>{{ profileName }}</span></span
+      >
+    </div>
+    <div>
+      <button class="bg-[#4cb2b2] text-center rounded-lg text-white p-[6px]">
+        Add Team Member
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-col mt-[10px]">
+    <div
+      class="card flex w-[100%] bg-[#e9f6f6] h-[40px] teamHeader font-semibold items-center"
+    >
+      <div class="w-[25%]">
+        <h2>Full Name</h2>
+      </div>
+      <div class="w-[25%]">
+        <h2>User Name</h2>
+      </div>
+      <div class="w-[32%]">
+        <h2>joining Date</h2>
+      </div>
+      <div>
+        <h2>Actions</h2>
+      </div>
+    </div>
+    <div class="card w-[100%] catogories-data ml-[36%]">
+      The {{profileName}} has no members
+    </div>
+  
   </div>
 </div>
